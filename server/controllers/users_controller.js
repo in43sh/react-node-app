@@ -4,6 +4,8 @@ const models = require ('../models/');
 
 module.exports = {
   createUser: (req, res, next) => {
+    console.log('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=---')
+    console.log(req.body)
     const { user } = req.body;
     return Users
     .create({ user })

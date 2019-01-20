@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Properties = sequelize.define('properties', {
+  const Users = sequelize.define('users', {
     user: {
       allowNull: false,
       type: DataTypes.STRING
@@ -9,5 +9,5 @@ module.exports = (sequelize, DataTypes) => {
     timestamps: true,
     paranoid: true
   })
-  return Properties;
+  return Users;
 };
