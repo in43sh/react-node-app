@@ -1,13 +1,14 @@
 const Items = require('../models').items;
-const _ = require('lodash');
+// const _ = require('lodash');
 const models = require ('../models');
 
 module.exports = {
-  createUser: (req, res, next) => {
+  createItem: (req, res, next) => {
     console.log(req.body)
-    const { item } = req.body;
+    // res.status(200).json({ status: 'Created one item' })
+    const { name } = req.body;
     return Items
-    .create({ item })
+    .create({ name })
     .then(item => res.status(200).json({ status: 'Created one item', item }))
     .catch(error => console.log(error));
   },
@@ -19,7 +20,7 @@ module.exports = {
     .catch(error => console.log(error));
   },
 
-  getSingleUser: (req, res, next) => {
+  getSingleItem: (req, res, next) => {
     const { id } = req.params;
     return Items
     .findById(id)
@@ -27,7 +28,7 @@ module.exports = {
     .catch(error => console.log(error));
   },
 
-  updateUser: (req, res, next) => {
+  updateItem: (req, res, next) => {
     const { id } = req.params;
     const { item } = req.body;
     return Items
@@ -46,7 +47,7 @@ module.exports = {
     .catch(error => console.log(error));
   },
 
-  destroyUser: (req, res, next) => {
+  destroyItem: (req, res, next) => {
     const { id } = req.params;
     return Items
     .findById(id)
