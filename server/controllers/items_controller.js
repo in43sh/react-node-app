@@ -30,7 +30,7 @@ module.exports = {
 
   updateItem: (req, res, next) => {
     const { id } = req.params;
-    const { item } = req.body;
+    const { name } = req.body;
     return Items
     .findById(id)
     .then(item => {
@@ -39,7 +39,7 @@ module.exports = {
       }
       return item
       .update({
-        item: item
+        name: name
       })
       .then(item => res.status(200).json({ status: 'Updated one item', item }))
       .catch(error => console.log(error));
